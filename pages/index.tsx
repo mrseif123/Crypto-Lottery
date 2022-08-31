@@ -5,7 +5,7 @@ import Head from 'next/head'
 import Header from '../components/Header'
 import Login from '../components/Login'
 import Loading from '../components/Loading'
-
+import Footer from '../components/Footer'
 import { ethers } from 'ethers'
 import { currency } from "../constants"
 import CountdownTimer from '../components/CountdownTimer'
@@ -154,6 +154,7 @@ const Home: NextPage = () => {
           </div >
         </div>
       </div>
+      <Footer />
     </div >
   )
 }
