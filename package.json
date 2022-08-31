@@ -12,6 +12,7 @@
     "ethers": "^5.7.0",
     "next": "latest",
     "react": "18.1.0",
+    "react-countdown": "^2.3.2",
     "react-dom": "18.1.0",
     "react-spinners": "^0.13.4"
   },

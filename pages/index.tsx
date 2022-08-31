@@ -8,6 +8,8 @@ import Loading from '../components/Loading'
 
 import { ethers } from 'ethers'
 import { currency } from "../constants"
+import CountdownTimer from '../components/CountdownTimer'
+
 const Home: NextPage = () => {
   const address = useAddress()
   const { contract, isLoading } = useContract(process.env.NEXT_PUBLIC_LOTTERY_CONTRACT_ADDRESS)
@@ -49,6 +51,9 @@ const Home: NextPage = () => {
               </div>
             </div>
             {/* countdown */}
+            <div className='mt-5 mb-3'>
+              <CountdownTimer />
+            </div>
           </div>
 
           <div className='stats-container space-y-2'>

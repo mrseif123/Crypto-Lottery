@@ -11,4 +11,12 @@
     .stats-container {
     @apply bg-[#091f1c]  p-5 rounded-lg border-[#004337] border;
   }
+
+  .countdown {
+    @apply text-5xl text-center text-white rounded-lg lg:min-w-[150px] bg-[#013f34];
+  }
+
+  .countdown-label{
+    @apply text-center text-white uppercase text-sm pt-4
+  }
 }
