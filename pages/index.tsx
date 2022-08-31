@@ -10,6 +10,8 @@ import { ethers } from 'ethers'
 import { currency } from "../constants"
 import CountdownTimer from '../components/CountdownTimer'
 import toast from "react-hot-toast"
+import Marquee from "react-fast-marquee";
+import LastWinnerMarquee from '../components/LastWinnerMarquee'
 
 const Home: NextPage = () => {
   const address = useAddress()
@@ -25,6 +27,9 @@ const Home: NextPage = () => {
   const { data: tickets } = useContractData(contract, "getTickets")
   const { data: winnings } = useContractData(contract, "getWinningsForAddress", address)
   const { mutateAsync: withdraw } = useContractCall(contract, "WithdrawWinnings")
+  const { data: lastWinner } = useContractData(contract, "lastWinner")
+  const { data: lastWinnerAmount } = useContractData(contract, "lastWinnerAmount")
+  const { data: lotteryOperator } = useContractData(contract, "lotteryOperator")
 
   const handlePurchase = async () => {
     if (!ticketPrice) return
@@ -64,11 +69,6 @@ const Home: NextPage = () => {
     }
   }
 
-
-
-
-
-
   useEffect(() => {
     if (!tickets) return
     const totalTickets: string[] = tickets
@@ -77,8 +77,6 @@ const Home: NextPage = () => {
 
     setUserTickets(numOfUserTickets)
   }, [tickets, address])
-
-
 
   if (isLoading) return <Loading />
 
@@ -93,6 +91,18 @@ const Home: NextPage = () => {
 
       <div className="flex-1">
         <Header />
+        <Marquee className="bg-[#0A1F1C] p-5 mb-5" gradient={false} speed={100} >
+          <LastWinnerMarquee lastWinner={lastWinner} lastWinnerAmount={lastWinnerAmount} />
+        </Marquee>
+
+        {lotteryOperator === address && (
+          <div className="flex justify-center">
+            <AdminControls />
+          </div>
+        )
+        }
+
+
         {winnings > 0 && (
           <div className='max-w-md md:max-w-2xl lg:max-w-4xl mx-auto mt-5'>
             <button onClick={handleWithdraw} className='p-5 bg-gradient-to-br
