@@ -17,6 +17,7 @@ const Home: NextPage = () => {
   const { data: pricePerTicket } = useContractData(contract, "CurrentWinningReward")
   const { data: ticketPrice } = useContractData(contract, "ticketPrice")
   const { data: ticketCommission } = useContractData(contract, "ticketCommission")
+  const { data: expiration } = useContractData(contract, "expiration")
 
 
   if (isLoading) {
@@ -99,10 +100,12 @@ const Home: NextPage = () => {
                 </div>
               </div>
 
-              <button className='mt-4 w-full bg-gradient-to-br
-             from-orange-500 to-emerald-600 px-10 py-5 rounded-md
+              <button
+                disabled={expiration?.toString() < Date.now().toString() || remainingTickets?.toNumber() === 0}
+                className='mt-4 w-full bg-gradient-to-br
+              from-orange-500 to-emerald-600 px-10 py-5 rounded-md
               text-white shadow-xl disabled:from-gray-600
-               disabled:text-gray-100 disabled:to-gray-600 
+              disabled:text-gray-100 disabled:to-gray-600 
                disabled:cursor-not-allowed'>Buy Tickets
               </button>
 
