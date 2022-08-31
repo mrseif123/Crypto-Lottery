@@ -9,6 +9,7 @@ import Loading from '../components/Loading'
 import { ethers } from 'ethers'
 import { currency } from "../constants"
 import CountdownTimer from '../components/CountdownTimer'
+import toast from "react-hot-toast"
 
 const Home: NextPage = () => {
   const address = useAddress()
@@ -20,6 +21,33 @@ const Home: NextPage = () => {
   const { data: ticketPrice } = useContractData(contract, "ticketPrice")
   const { data: ticketCommission } = useContractData(contract, "ticketCommission")
   const { data: expiration } = useContractData(contract, "expiration")
+  const { mutateAsync: buyTickets } = useContractCall(contract, "BuyTickets")
+
+  const handlePurchase = async () => {
+    if (!ticketPrice) return
+    const notification = toast.loading("Buying your tickets... 🎫")
+    try {
+      const data = await buyTickets(
+        [
+          {
+            value: ethers.utils.parseEther(
+              (
+                Number(ethers.utils.formatEther(ticketPrice)) * quantity
+              ).toString(),
+            )
+          }
+        ]
+      )
+      toast.success("Ticket purchased!", { id: notification })
+      console.log("Contract call success.")
+
+    } catch (error) {
+      toast.error("Error purchasing ticket", { id: notification })
+      console.log("Contract call failed.", error)
+    }
+
+  }
+
 
   if (isLoading) return <Loading />
 
@@ -89,6 +117,7 @@ const Home: NextPage = () => {
               </div>
 
               <button
+                onClick={handlePurchase}
                 disabled={expiration?.toString() < Date.now().toString() || remainingTickets?.toNumber() === 0}
                 className='mt-4 w-full bg-gradient-to-br
               from-orange-500 to-emerald-600 px-10 py-5 rounded-md
