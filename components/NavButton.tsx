@@ -7,7 +7,7 @@ interface Props {
 
 function NavButton({ title, isActive }: Props) {
   return (
-    <button className={`${isActive && "bg-[#036756]"} hover:bg-[#036757] text-white py-2 px-2 rounded`} >
+    <button className={`${isActive && "bg-[#036756]"} hover:bg-[#036757] font-bold text-white py-2 px-2 rounded`} >
       {title}
     </ button>
   )
