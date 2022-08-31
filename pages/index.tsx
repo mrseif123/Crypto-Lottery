@@ -53,7 +53,6 @@ const Home: NextPage = () => {
       toast.error("Error purchasing ticket", { id: notification })
       console.log("Contract call failed.", error)
     }
-
   }
 
   const handleWithdraw = async () => {

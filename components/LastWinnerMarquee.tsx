@@ -11,7 +11,8 @@ function LastWinnerMarquee({ lastWinner, lastWinnerAmount }: Props) {
   console.log(lastWinnerAmount)
   return (
     <div className='space-x-2 flex mx-10'>
-      <h4 className='text-white font-bold'>Last Winner: {lastWinner?.toString()}</h4>
+      <h4 className='text-white font-bold'>Last Winner: {lastWinner?.toString()}
+      </h4>
       <h4 className='text-white font-bold'> &  Previous winnings: {lastWinnerAmount?.toString()}</h4>
     </div>
   )
