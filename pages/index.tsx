@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useAddress, useContract, useMetamask, useDisconnect, useContractData, useContractCall } from '@thirdweb-dev/react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
@@ -15,13 +15,14 @@ const Home: NextPage = () => {
   const address = useAddress()
   const { contract, isLoading } = useContract(process.env.NEXT_PUBLIC_LOTTERY_CONTRACT_ADDRESS)
   const [quantity, setQuantity] = useState(1)
-
+  const [userTickets, setUserTickets] = useState(0)
   const { data: remainingTickets } = useContractData(contract, "RemainingTickets")
   const { data: pricePerTicket } = useContractData(contract, "CurrentWinningReward")
   const { data: ticketPrice } = useContractData(contract, "ticketPrice")
   const { data: ticketCommission } = useContractData(contract, "ticketCommission")
   const { data: expiration } = useContractData(contract, "expiration")
   const { mutateAsync: buyTickets } = useContractCall(contract, "BuyTickets")
+  const { data: tickets } = useContractData(contract, "getTickets")
 
   const handlePurchase = async () => {
     if (!ticketPrice) return
@@ -47,6 +48,16 @@ const Home: NextPage = () => {
     }
 
   }
+
+  useEffect(() => {
+    if (!tickets) return
+    const totalTickets: string[] = tickets
+    const numOfUserTickets = totalTickets.reduce((total, ticketAddress) =>
+      (ticketAddress === address) ? total + 1 : total, 0)
+
+    setUserTickets(numOfUserTickets)
+  }, [tickets, address])
+
 
 
   if (isLoading) return <Loading />
@@ -123,13 +134,25 @@ const Home: NextPage = () => {
               from-orange-500 to-emerald-600 px-10 py-5 rounded-md
               text-white shadow-xl disabled:from-gray-600
               disabled:text-gray-100 disabled:to-gray-600 
-               disabled:cursor-not-allowed'>Buy Tickets
-              </button>
+               disabled:cursor-not-allowed font-semibold'>
+                Buy {quantity} tickets for{" "}
+                {ticketPrice && Number(ethers.utils.formatEther(ticketPrice.toString())) * quantity}{" "}{currency}
 
+              </button>
             </div>
-          </div>
-        </div >
-        <div></div>
+            {userTickets > 0 && (
+              <div className='stats'>
+                <p className='text-lg mb-2'>You have {userTickets} tickets in this draw</p>
+                <div className='flex max-w-sm flex-wrap gap-x-2 gap-y-2'>
+                  {
+                    Array(userTickets).fill("").map(
+                      (_, index) => (<p key={index} className="text-emerald-300 h-20 w-12 bg-emerald-500/30 rounded-lg flex flex-shrink-0 items-center justify-center text-xs italic">{index + 1}</p>
+                      ))}
+                </div>
+              </div>
+            )}
+          </div >
+        </div>
       </div>
     </div >
   )
