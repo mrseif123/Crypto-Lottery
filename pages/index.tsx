@@ -4,7 +4,7 @@ import Image from 'next/image'
 import Header from '../components/Header'
 const Home: NextPage = () => {
   return (
-    <div className="">
+    <div className="bg-[#091b18] min-h-screen flex flex-col">
       <Head>
         <title>Crypto Lottery</title>
         <link rel="icon" href="/favicon.ico" />
