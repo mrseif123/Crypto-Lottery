@@ -12,7 +12,7 @@ import CountdownTimer from '../components/CountdownTimer'
 import toast from "react-hot-toast"
 import Marquee from "react-fast-marquee";
 import LastWinnerMarquee from '../components/LastWinnerMarquee'
-
+import AdminControls from '../components/AdminControls'
 const Home: NextPage = () => {
   const address = useAddress()
   const { contract, isLoading } = useContract(process.env.NEXT_PUBLIC_LOTTERY_CONTRACT_ADDRESS)
@@ -101,8 +101,6 @@ const Home: NextPage = () => {
           </div>
         )
         }
-
-
         {winnings > 0 && (
           <div className='max-w-md md:max-w-2xl lg:max-w-4xl mx-auto mt-5'>
             <button onClick={handleWithdraw} className='p-5 bg-gradient-to-br
