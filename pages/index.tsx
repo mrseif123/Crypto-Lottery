@@ -23,6 +23,8 @@ const Home: NextPage = () => {
   const { data: expiration } = useContractData(contract, "expiration")
   const { mutateAsync: buyTickets } = useContractCall(contract, "BuyTickets")
   const { data: tickets } = useContractData(contract, "getTickets")
+  const { data: winnings } = useContractData(contract, "getWinningsForAddress", address)
+  const { mutateAsync: withdraw } = useContractCall(contract, "WithdrawWinnings")
 
   const handlePurchase = async () => {
     if (!ticketPrice) return
@@ -49,6 +51,24 @@ const Home: NextPage = () => {
 
   }
 
+  const handleWithdraw = async () => {
+    const notification = toast.loading("Withdrawing your winnings... 🎫")
+    try {
+      const data = await withdraw([{}])
+      toast.success("Winnings withdrawn!", { id: notification })
+      console.log("Contract call success.")
+    }
+    catch (error) {
+      toast.error("Error withdrawing winnings", { id: notification })
+      console.log("Contract call failed.", error)
+    }
+  }
+
+
+
+
+
+
   useEffect(() => {
     if (!tickets) return
     const totalTickets: string[] = tickets
@@ -73,6 +93,17 @@ const Home: NextPage = () => {
 
       <div className="flex-1">
         <Header />
+        {winnings > 0 && (
+          <div className='max-w-md md:max-w-2xl lg:max-w-4xl mx-auto mt-5'>
+            <button onClick={handleWithdraw} className='p-5 bg-gradient-to-br
+              from-orange-500 to-emerald-600 animate-pulse text-center rounded-xl w-full '>
+              <p className='font-bold'>Winner Winner Chicken Dinner!</p>
+              <p>Total winnings: {ethers.utils.formatEther(winnings.toString())}{" "}{currency}</p>
+              <br />
+              <p>Click here to withdraw 💸</p>
+            </button>
+          </div>
+        )}
 
         <div className='space-y-5 md:space-y-0 m-5 md:flex items-start justify-center md:space-x-5'>
           <div className='stats-container'>
