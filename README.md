@@ -35,7 +35,7 @@ As a lottery admin, you get commision for evey ticket purchased! and you control
             7.1- IF testing, make sure to use Mumbai Server as a test net!!!\
             7.2- Use [Faucet charging websites](https://faucet.polygon.technology/) or similar to charge your Mumbai wallet with *Dummy* Matic currency.\
       8. Once deployed, copy the Contract ID from thirdweb.\
-      9. Create `.env.local` file in your folder.\
+      9. Run `cd ..`, Create `.env.local` file in your folder.\
       10. In the `.env.local` file add the following: `NEXT_PUBLIC_LOTTERY_CONTRACT_ADDRESS=YOUR_CONTRACT_ID`\
       11. Refresh the page.\
       12. Sign in using the Metamask account you used in thirdweb.\
