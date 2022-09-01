@@ -17,28 +17,28 @@ All of the WEB3 transactions are currently registred on MATIC Mumbai (a test-net
       3- Welcome to Crypto-Lottery! here you can buy tickets win a draw is available.
 
 * To edit:
-      1- Clone this repo.
-      2- Run `npm install` to install all dependecies.
-      3- Run `npm start` to start on local server.
-      4- Create a Metamask account using the web extension.
-      5- Sign in via the `Login with Metamask` button.
+      1. Clone this repo.
+      2. Run `npm install` to install all dependecies.
+      3. Run `npm start` to start on local server.
+      4. Create a Metamask account using the web extension.
+      5. Sign in via the `Login with Metamask` button.
       
 * To create your own lottery:
-      1- Clone this repo
-      2- Run `npm install` to install all dependecies.
-      3- Run `npm start` to start on local server.
-      4- Run `cd contract`
-      5- Run `npm install`  to install contract dependicies.
-      6- Run `npx thirdweb deploy` to deploy the contract to thirdweb.
-      7- Follow instructions to use your Metamask account as admin.
+      1. Clone this repo
+      2. Run `npm install` to install all dependecies.
+      3. Run `npm start` to start on local server.
+      4. Run `cd contract`
+      5. Run `npm install`  to install contract dependicies.
+      6. Run `npx thirdweb deploy` to deploy the contract to thirdweb.
+      7. Follow instructions to use your Metamask account as admin.
             7.1- IF testing, make sure to use Mumbai Server as a test net!!!
             7.2- Use [Faucet charging websites](https://faucet.polygon.technology/) or similar to charge your Mumbai wallet with *Dummy* Matic currency.
-      8- Once deployed, copy the Contract ID from thirdweb.
-      9- Create `.env.local` file in your folder.
-      10- In the `.env.local` file add the following: `NEXT_PUBLIC_LOTTERY_CONTRACT_ADDRESS=YOUR_CONTRACT_ID`
-      11- Refresh the page.
-      12- Sign in using the Metamask account you used in thirdweb.
-      13- Congratulations! you can DrawWinner/RefundAll/RestartDraw/WithdrawCommision.
+      8. Once deployed, copy the Contract ID from thirdweb.
+      9. Create `.env.local` file in your folder.
+      10. In the `.env.local` file add the following: `NEXT_PUBLIC_LOTTERY_CONTRACT_ADDRESS=YOUR_CONTRACT_ID`
+      11. Refresh the page.
+      12. Sign in using the Metamask account you used in thirdweb.
+      13. Congratulations! you can DrawWinner/RefundAll/RestartDraw/WithdrawCommision.
  
  
  ## Demo & Showcasing:
