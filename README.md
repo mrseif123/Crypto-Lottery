@@ -54,7 +54,7 @@ As a lottery admin, you get commision for evey ticket purchased! and you control
 
  
  ## Demo & Showcasing:
- - [User interactions](https://youtu.be/Ta5o-LQpSrU)
+ - Video: [User interactions](https://youtu.be/Ta5o-LQpSrU)
 ![Screenshot 2022-09-01 at 12 18 59](https://user-images.githubusercontent.com/30297892/187879320-70146cbc-fdac-40e8-93ce-97c3c1e3e869.png)
 
 
@@ -63,7 +63,7 @@ As a lottery admin, you get commision for evey ticket purchased! and you control
 
 
 
- - [Admin controls](https://youtu.be/LlyFIfLKMQg)
+ - Video: [Admin controls](https://youtu.be/LlyFIfLKMQg)
 ![Screenshot 2022-09-01 at 12 18 29](https://user-images.githubusercontent.com/30297892/187879335-029009af-aa45-41f7-b54e-ca7a7e254947.png)
 
 
