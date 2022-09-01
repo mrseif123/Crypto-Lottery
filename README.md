@@ -1,6 +1,7 @@
 # Crypto-Lottery Web App:
 A Next.Js Web app for crypto-lottery, where users can buy tickets using MATIC cryptocurrency for the lottery, and an admin draws the winner using Solidity Smart contract backend, and thirdweb servers for connecting functionality.
 All of the WEB3 transactions are currently registred on MATIC Mumbai (a test-net for the MATIC cryptocurrency) to prevent real currency transactions, other than that transaction real and appear between wallets.
+As a lottery admin, you get commision for evey ticket purchased! and you control the flow of the lottery draw.
 
 ## Project Technological Stack:
 * NextJS & Vercel for quick start and deployment.
@@ -40,6 +41,13 @@ All of the WEB3 transactions are currently registred on MATIC Mumbai (a test-net
       12. Sign in using the Metamask account you used in thirdweb.\
       13. Congratulations! you can DrawWinner/RefundAll/RestartDraw/WithdrawCommision.
  
+### Mumbai Test Net data:
+-Network Name: Mumbai Testnet\
+-New RPC URL: https://rpc-mumbai.maticvigil.com\
+-Chain ID: 80001\
+-Currency Symbol: MATIC\
+-Block Explorer URL: https://polygonscan.com/
+
  
  ## Demo & Showcasing:
 
