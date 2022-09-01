@@ -12,9 +12,9 @@ All of the WEB3 transactions are currently registred on MATIC Mumbai (a test-net
 
 ## Usage:
 * To join the lottery:
-      1- Visit [Crypto-Lottery](https://crypto-lottery-phi.vercel.app/)
-      2- Create/Use a Metamask account.
-      3- Welcome to Crypto-Lottery! here you can buy tickets win a draw is available.
+      1. Visit [Crypto-Lottery](https://crypto-lottery-phi.vercel.app/)
+      2. Create/Use a Metamask account.
+      3. Welcome to Crypto-Lottery! here you can buy tickets win a draw is available.
 
 * To edit:
       1. Clone this repo.
