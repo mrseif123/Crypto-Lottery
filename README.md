@@ -12,3 +12,6 @@ All of the WEB3 transactions are currently registred on MATIC Mumbai (a test-net
 
 
 
+<div align="center">
+      <img src="[images/logo.png](https://th.bing.com/th/id/R.cf3f7639754e0dc19bbc1a5f1666e347?rik=Ath%2b%2bmDhk6YVaw&pid=ImgRaw&r=0)" alt="Logo" width="80" height="80">
+</div>
