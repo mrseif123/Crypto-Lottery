@@ -10,7 +10,7 @@ function Header() {
   return (
     <header className='grid grid-cols-2 md:grid-cols-5 justify-between items-center p-5'>
       <div className='flex items-center space-x-2'>
-        <img alt="profile picture" className='rounded-full h-20 w-20' src="https://avatars.githubusercontent.com/u/30297892?v=4" />
+        <img alt="profile picture" className='rounded-full h-20 w-20' src="https://th.bing.com/th/id/R.cf3f7639754e0dc19bbc1a5f1666e347?rik=Ath%2b%2bmDhk6YVaw&pid=ImgRaw&r=0" />
         <div>
           <h1 className='text-lg text-white font-bold'>Crypto Lottery Draw</h1>
           <p className='text-xs text-emerald-500 truncate'>User: {address?.substring(0, 5)}...{address?.substring(address.length, address.length - 5)}</p>
