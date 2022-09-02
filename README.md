@@ -68,4 +68,6 @@ As a lottery admin, you get commision for evey ticket purchased! and you control
 
 
 
+### Special Thanks:
+- [Sonny Sangha](https://www.youtube.com/c/SonnySangha) for his amazing tutorial.
 
